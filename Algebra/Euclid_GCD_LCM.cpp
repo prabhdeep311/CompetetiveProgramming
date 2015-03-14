@@ -1,5 +1,6 @@
 //
 //  Euclid_GCD_LCM.cpp
+//  O(log(min(a,b)))
 //
 //  Created by Prabhdeep Singh Walia on 13/03/15.
 //  Copyright (c) 2015 Prabhdeep Singh Walia. All rights reserved.
