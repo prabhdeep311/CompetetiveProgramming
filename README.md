@@ -1,2 +1,2 @@
 # CompetitiveProgramming
-Implementation and analysis of algorithms encountered by competitive programmers.
+Implementation of algorithms encountered by competitive programmers.
