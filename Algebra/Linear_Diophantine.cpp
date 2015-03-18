@@ -1,8 +1,8 @@
 //
-//  Extended_Euclidean.cpp
+//  Linear_Diophantine.cpp
 //  O(log(min(a,b)))
 //
-//  Created by Prabhdeep Singh Walia on 15/03/15.
+//  Created by Prabhdeep Singh Walia on 18/03/15.
 //  Copyright (c) 2015 Prabhdeep Singh Walia. All rights reserved.
 //
 
@@ -31,7 +31,7 @@ const ll MOD = 1000000007;
 const int maxn=1e+5;
 typedef vector<vector<ll> > matrix;
 
-//Using: b%a = b - floor(b/a)*a;
+//Extended Euclidean
 int gcd(int a, int b, int &x, int &y)
 {
     if(a == 0)
@@ -47,13 +47,26 @@ int gcd(int a, int b, int &x, int &y)
 	return t ;
 }
 
+bool find_solution(int a, int b, int c, int &x, int &y)
+{
+    int g = gcd(abs(a), abs(b), x, y);
+    if(c%g != 0)
+        return false;
+    x *= c/g;
+    y *= c/g;
+    if(a < 0) x *= -1;
+    if(b < 0) y *= -1;
+    return true;
+}
+
 int main(int argc, const char * argv[])
 {
-    int a, b;
-    cin>>a>>b;
+    int a, b, c;    //exclude case for a = b = 0 (infinite solutions for c = 0 or no solutions for c != 0)
+    cin>>a>>b>>c;
     int x, y;
-    cout<<gcd(a, b, x, y)<<"\n";
-    cout<<x<<" "<<y<<"\n";
+    bool ans = find_solution(a, b, c, x, y);
+    if(ans) cout<<x<<" "<<y<<"\n";
+    else    cout<<"No Answer\n";
     return 0;
 }
 

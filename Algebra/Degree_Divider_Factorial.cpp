@@ -1,8 +1,7 @@
 //
-//  Extended_Euclidean.cpp
-//  O(log(min(a,b)))
+//  Degree_Divider_Factorial.cpp
 //
-//  Created by Prabhdeep Singh Walia on 15/03/15.
+//  Created by Prabhdeep Singh Walia on 18/03/15.
 //  Copyright (c) 2015 Prabhdeep Singh Walia. All rights reserved.
 //
 
@@ -31,30 +30,22 @@ const ll MOD = 1000000007;
 const int maxn=1e+5;
 typedef vector<vector<ll> > matrix;
 
-//Using: b%a = b - floor(b/a)*a;
-int gcd(int a, int b, int &x, int &y)
+int degreeDiv(int n, int k)
 {
-    if(a == 0)
+    int res = 0;
+	while(n)
     {
-        x = 0;
-        y = 1;
-        return b;
-    }
-    int x1, y1;
-    int t = gcd(b%a, a, x1, y1);
-    x = y1 - (b/a) * x1;
-    y = x1 ;
-	return t ;
+		n /= k;
+		res += n;
+	}
+	return res;
 }
 
 int main(int argc, const char * argv[])
 {
-    int a, b;
-    cin>>a>>b;
-    int x, y;
-    cout<<gcd(a, b, x, y)<<"\n";
-    cout<<x<<" "<<y<<"\n";
+    int n, k;
+    cin>>n>>k;
+    cout<<degreeDiv(n, k)<<"\n";
     return 0;
 }
-
 
